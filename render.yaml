@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: alist
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    port: 5244
+    envVars:
+      - key: PUID
+        value: "0"
+      - key: PGID
+        value: "0"
+      - key: UMASK
+        value: "022"
+    disk:
+      name: alist-data
+      mountPath: /opt/alist/data
+      sizeGB: 1024
